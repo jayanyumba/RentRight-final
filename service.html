@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showServiceForm(service) {
+            document.querySelectorAll('.service-form').forEach(form => form.style.display = 'none');
+            document.getElementById(service + '-form').style.display = 'block';
+        }
+
+        function handleServiceBooking(event, service) {
+            event.preventDefault();
+            // For demonstration, redirect to a success page after booking
+            window.location.href = 'payment.html';
+        }
+    </script>
+</head>
+<body>
+   
+         </ul>
+        </div>
+    </nav>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">RENTRIGHT-RENTALS</a>   
+            <div class="navbar_toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+                <li class="navbar_item"><a href="INDEX.html" class="navbar_links">HOME</a></li>
+                <li class="navbar_item"><a href="service.html" class="navbar_links">SERVICES</a></li>
+                <li class="navbar_item"><a href="PAY.html" class="navbar_links">PAY</a></li>
+                <li class="navbar_item"><a href="login.html" class="navbar_links">LOGIN</a></li>
+                <li class="navbar_item"><a href="register.html" class="navbar_links">REGISTER</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="service-container">
+        <h2>Book Services</h2>
+        <button onclick="showServiceForm('maintenance')">Book Maintenance</button>
+        <button onclick="showServiceForm('cleaning')">Book Cleaning</button>
+        <button onclick="showServiceForm('food')">Order Food</button>
+        <button onclick="showServiceForm('groceries')">Order Groceries</button>
+        <button onclick="showServiceForm('communication')">COMMUNICATION</button>
+        <button onclick="showServiceForm('notices')"> NOTICES</button>
+
+        <!-- Maintenance Service Form -->
+        <div id="maintenance-form" class="service-form" style="display: none;">
+            <h3>Book Maintenance</h3>
+            <form onsubmit="handleServiceBooking(event, 'maintenance')">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <input type="text" placeholder="House Number" required>
+                <input type="text" placeholder="Time Needed (hours/days)" required>
+                <input type="text" placeholder="Block/Building" required>
+                <input type="text" placeholder="type of maintenance required" required>
+
+                <label for="payment-method-maintenance">Select Payment Method:</label>
+                <select id="payment-method-maintenance" required>
+                    <option value="pay-on-delivery">Pay on Delivery</option>
+                    <option value="pay-now">Pay Now</option>
+                    <option value="pay-end-month">Pay End of Month</option>
+                </select>
+
+                <button type="submit">Book Maintenance</button>
+            </form>
+        </div>
+
+        
+        <div id="cleaning-form" class="service-form" style="display: none;">
+            <h3>Book Cleaning</h3>
+            <form onsubmit="handleServiceBooking(event, 'cleaning')">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <input type="text" placeholder="House Number" required>
+                <input type="text" placeholder="Time Needed (hours/days)" required>
+                <input type="text" placeholder="Block/Building" required>
+
+                <label for="payment-method-cleaning">Select Payment Method:</label>
+                <select id="payment-method-cleaning" required>
+                    <option value="pay-on-delivery">Pay on Delivery</option>
+                    <option value="pay-now">Pay Now</option>
+                    <option value="pay-end-month">Pay End of Month</option>
+                </select>
+
+                <button type="submit">Book Cleaning</button>
+            </form>
+        </div>
+
+        
+        <div id="food-form" class="service-form" style="display: none;">
+            <h3>Order Food</h3>
+            <form onsubmit="handleServiceBooking(event, 'food')">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <input type="text" placeholder="House Number" required>
+                <input type="text" placeholder="Time Needed (hours/days)" required>
+                <input type="text" placeholder="Block/Building" required>
+                <input type="text" placeholder="which food?" required>
+
+                <label for="payment-method-food">Select Payment Method:</label>
+                <select id="payment-method-food" required>
+                    <option value="pay-on-delivery">Pay on Delivery</option>
+                    <option value="pay-now">Pay Now</option>
+                    <option value="pay-end-month">Pay End of Month</option>
+                </select>
+
+                <button type="submit">Order Food</button>
+            </form>
+        </div>
+
+        
+        <div id="groceries-form" class="service-form" style="display: none;">
+            <h3>Order Groceries</h3>
+            <form onsubmit="handleServiceBooking(event, 'groceries')">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <input type="text" placeholder="House Number" required>
+                <input type="text" placeholder="Time Needed (hours/days)" required>
+                <input type="text" placeholder="Block/Building" required>
+                <input type="text" placeholder="explain groceries needed" required>
+
+                <label for="payment-method-groceries">Select Payment Method:</label>
+                <select id="payment-method-groceries" required>
+                    <option value="pay-on-delivery">Pay on Delivery</option>
+                    <option value="pay-now">Pay Now</option>
+                    <option value="pay-end-month">Pay End of Month</option>
+                </select>
+
+                <button type="submit">Order Groceries</button>
+            </form>
+        </div>
+
+        
+        <div id="communication-form" class="service-form" style="display: none;">
+            <h3> Communication</h3>
+            <form onsubmit="handleServiceBooking(event, 'communication')">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Your Phone Number" required>
+                <input type="text" placeholder="House Number" required>
+                <input type="text" placeholder="communicating to? (house number/public)" required>
+                <input type="text" placeholder="Block/Building" required>
+                <input type="text" placeholder="communication message" required>
+
+
+                <button type="submit"> Communicate</button>
+            </form>
+        </div>
+
+        
+        <div id="notices-form" class="service-form" style="display: none;">
+            <h3>Notices</h3>
+            <form onsubmit="handleServiceBooking(event, 'notices')">
+                <input type="text" placeholder="Your Name" required>
+                <input type="text" placeholder="Notice" required>
+                <button type="submit">post notice</button>

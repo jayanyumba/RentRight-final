@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showForm(role) {
+            document.querySelectorAll('.login-form').forEach(form => form.style.display = 'none');
+            document.getElementById(role + '-form').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+         <a href="/" id="navbar_logo">RENTRIGHT-RENTALS</a>   
+         <div class="navbar_toggle" id="mobile-menu">
+         <span class="bar"></span><span class="bar"></span>
+         <span class="bar"></span>
+         </div>
+         <ul class="navbar_menu">
+            <li class="navbar_item">
+                <a href="/INDEX.html" class="navbar_links">HOME</a>
+            </li>
+            <li class="navbar_item">
+                <a href="/service.html" class="navbar_links">SERVICES</a>
+                </li>
+                <li class="navbar_item">
+                    <a href="/PAY.php" class="navbar_links">PAY</a>
+                    </li>
+                    <li class="navbar_item">
+                        <a href="login.html" class="navbar_links">LOGIN</a>
+                        </li>
+                        <li class="navbar_item">
+                            <a href="/REGISTER.html" class="navbar_links">REGISTER</a>
+                        </li>
+         </ul>
+        </div>
+    </nav>
+
+    <div class="registration-container">
+        <h2>Registration</h2>
+        
+       
+        <div id="tenant-form" class="registration-form" style="display: none;">
+            <form action="register.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="role" value="tenant">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="id_number" placeholder="ID Number" required>
+                <!-- <input type="file" name="passport_photo" accept="image/*" required> -->
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="house_number" placeholder="House Number" required>
+                <input type="number" name="family_members" placeholder="Number of Family Members" required>
+                <input type="password" name="password" placeholder="New Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div id="landlord-form" class="registration-form" style="display: none;">
+            <form action="register.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="role" value="landlord">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="text" name="id_number" placeholder="ID Number" required>
+                <input type="password" name="password" placeholder="New Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <div class="registration-options">
+            
+            <button onclick="showForm('tenant')">Register as a Tenant</button>
+            <button onclick="showForm('landlord')">Register as a Landlord</button>
+        </div>
+
+        <a href="login.html" class="login-link">Already have an account? Login</a>
+    </div>
+
+    <script>
+        function showForm(role) {
+            document.querySelectorAll('.registration-form').forEach(form => form.style.display = 'none');
+            document.getElementById(role + '-form').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

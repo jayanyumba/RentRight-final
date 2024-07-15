@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Website Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function showForm(role) {
+            document.querySelectorAll('.login-form').forEach(form => form.style.display = 'none');
+            document.getElementById(role + '-form').style.display = 'block';
+        }
+
+        // function handleLogin(event) {
+        //     event.preventDefault();
+        //     window.location.href = 'payment.html';
+        // }
+        function handleLogin(event) {
+    event.preventDefault();
+    const role = event.target.closest('.login-form').id.split('-')[0];
+    if (role === 'tenant') {
+        window.location.href = 'tenant_dashboard.php';
+    } else if (role === 'landlord') {
+        window.location.href = 'landlord_dashboard.php';
+    }
+}
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_container">
+            <a href="/" id="navbar_logo">RENTRIGHT-RENTALS</a>   
+            <div class="navbar_toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar_menu">
+                <li class="navbar_item"><a href="INDEX.html" class="navbar_links">HOME</a></li>
+                <li class="navbar_item"><a href="service.html" class="navbar_links">SERVICES</a></li>
+                <li class="navbar_item"><a href="PAY.php" class="navbar_links">PAY</a></li>
+                <li class="navbar_item"><a href="login.html" class="navbar_links">LOGIN</a></li>
+                <li class="navbar_item"><a href="REGISTER.html" class="navbar_links">REGISTER</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="login-container">
+        <h2>Login</h2>
+        <button onclick="showForm('tenant')">Login as a Tenant</button>
+        <button onclick="showForm('landlord')">Login as a Landlord</button>
+
+       
+
+        <div id="tenant-form" class="login-form" style="display: none;">
+            <h3>Login as Tenant</h3>
+            <form method="POST" action="login.php">
+                <input type="text" placeholder="Email Address" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <button type="submit" name="login">Login</button>
+            </form>
+        </div>
+
+        <div id="landlord-form" class="login-form" style="display: none;">
+            <h3>Login as Landlord</h3>
+            <form method="POST" action="login.php">
+                <input type="text" placeholder="Email Address" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <button type="submit" name="login">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
